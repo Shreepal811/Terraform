@@ -1,9 +1,9 @@
 data "aws_subnet" "existing"{
-  id = "subnet-0797fdf5a2690aebf"
+  id = "<subnet-id>"
 }
 
 data "aws_security_group" "existing"{
-  id = "sg-07ad346a7fe4b8ebb"
+  id = "<sg-id>"
 }
 
 resource "aws_instance" "example" {
@@ -12,10 +12,10 @@ resource "aws_instance" "example" {
   subnet_id = data.aws_subnet.existing.id
   vpc_security_group_ids = [data.aws_security_group.existing.id]
   associate_public_ip_address = true
-  key_name = "new-aws"
+  key_name = "<your-key-file>"
 
   tags = {
-    Name = "Jenkins"
+    Name = "<Name-of-the-Instance>"
   }
 }
 
